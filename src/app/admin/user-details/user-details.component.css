@@ -1,0 +1,21 @@
+.nameclass {
+    color: blue;
+    cursor: pointer;
+}
+
+.nameclass:hover {
+    text-decoration: underline;
+}
+
+.mt-cl-10 {
+    margin-top: 10%;
+    margin-bottom: 5%;
+}
+
+
+@media (min-width: 375px) and (max-width: 600px) {
+    .mt-cl-10 {
+        margin-top: 20%;
+        margin-bottom: 5%;
+    }
+}

@@ -1,0 +1,23 @@
+#buyer-outlet {
+    width: 84%;
+    margin-left: 16%;
+    padding-top: 60px;
+    overflow-y: auto;
+}
+.mar-bot-59{
+    margin-bottom: 75px !important;
+}
+.shrinked {
+    margin-left: 6% !important;
+    width: 94% !important;
+}
+
+h3 {
+    margin: 0 0 10px;
+  }
+  
+  pre {
+    background-color: #f5f5f5;
+    padding: 15px;
+  }
+  

@@ -1,0 +1,30 @@
+/* You can add global styles to this file, and also import other style files */
+/* angular-cli file: src/styles.css */
+@import "../node_modules/angular-calendar/css/angular-calendar.css";
+@import '~bootstrap/dist/css/bootstrap.min.css';
+@import '~open-iconic/font/css/open-iconic-bootstrap.css';
+@import '~ngx-toastr/toastr.css';
+
+/* Errors */
+
+.error-message {
+    color: #e74c3c;
+    position: relative;
+    top: -4px;
+    display: inline-block;
+    font-size: 13px;
+}
+
+.error-message > p {
+    margin-bottom: 10px;
+}
+
+.ng-valid[required], .ng-valid.required  {
+    border-left: 5px solid #42A948; /* green */
+  }
+  
+  .ng-invalid:not(form)  {
+    border-left: 5px solid #a94442; /* red */
+  }
+
+

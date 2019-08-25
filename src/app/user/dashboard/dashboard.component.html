@@ -1,0 +1,135 @@
+
+
+  <!-- <nav class="navbar navbar-expand-lg navbar-dark bg-primary">
+      <a class="navbar-brand" href="#">Navbar</a>
+      <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavDropdown" aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <div class="collapse navbar-collapse my-2 my-lg-0" id="navbarNavDropdown">
+        <ul class="navbar-nav">
+          <li class="nav-item dropdown">
+            <a class="nav-link dropdown-toggle my-2 my-sm-0" href="#" id="navbarDropdownMenuLink" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+              Dropdown link
+            </a>
+            <div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
+              <a class="dropdown-item" href="#">Action</a>
+              <a class="dropdown-item" href="#">Another action</a>
+              <a class="dropdown-item" href="#">Something else here</a>
+            </div>
+          </li>
+        </ul>
+      </div>
+    </nav> -->
+
+
+
+<app-loader *ngIf="isLoading"></app-loader>
+
+
+<div class="mt-cl-10" *ngIf="!isLoading">
+
+  <mwl-demo-utils-calendar-header [(view)]="view" [(viewDate)]="viewDate">
+  </mwl-demo-utils-calendar-header>
+
+  <div [ngSwitch]="view">
+    <mwl-calendar-month-view *ngSwitchCase="'month'" [viewDate]="viewDate" [events]="events" [refresh]="refresh" (dayClicked)="viewDate = $event.day.date; view = 'day'"
+      (eventClicked)="handleEvent($event)" (eventTimesChanged)="eventTimesChanged($event)">
+    </mwl-calendar-month-view>
+    <mwl-calendar-week-view *ngSwitchCase="'week'" [viewDate]="viewDate" [refresh]="refresh" [events]="events" (dayHeaderClicked)="viewDate = $event.day.date; view = 'day'"
+      (eventClicked)="handleEvent($event)" (eventTimesChanged)="eventTimesChanged($event)">
+    </mwl-calendar-week-view>
+    <mwl-calendar-day-view *ngSwitchCase="'day'" [viewDate]="viewDate" [refresh]="refresh" [events]="events" (eventClicked)="handleEvent($event)"
+      (eventTimesChanged)="eventTimesChanged($event)">
+
+    </mwl-calendar-day-view>
+  </div>
+
+</div>
+
+
+  <div class="modal fade" id="exampleModalCenter" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
+    <div class="modal-dialog modal-dialog-centered" role="document">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title" id="exampleModalCenterTitle">Event Details</h5>
+          <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+            <span aria-hidden="true">&times;</span>
+          </button>
+        </div>
+        <div class="modal-body">
+          <p>{{modalString}}</p>
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-primary" data-dismiss="modal">Close</button>
+        </div>
+      </div>
+    </div>
+  </div>
+
+
+  <div class="modal fade" id="eventData" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
+    <div class="modal-dialog modal-dialog-centered" role="document">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title" id="exampleModalCenterTitle">Event Details</h5>
+          <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+            <span aria-hidden="true">&times;</span>
+          </button>
+        </div>
+        <div class="modal-body">
+          <div class="container">
+            <div class="row">
+              <div class="col-md-6">Event Name:</div>
+              <div class="col-md-6">{{eventDetails.title}}</div>
+            </div>
+            <div class="row">
+              <div class="col-md-6">When:</div>
+              <div class="col-md-6">{{eventDetails.when}}</div>
+            </div>
+            <div class="row">
+              <div class="col-md-6">Where:</div>
+              <div class="col-md-6">{{eventDetails.where}}</div>
+            </div>
+            <div class="row">
+              <div class="col-md-6">Purpose:</div>
+              <div class="col-md-6">{{eventDetails.purpose}}</div>
+            </div>
+            <div class="row">
+                <div class="col-md-6">Event Created By:</div>
+                <div class="col-md-6">{{eventDetails.userName}}</div>
+              </div>
+                <div class="row">
+                    <div class="col-md-6">Start Date:</div>
+                    <div class="col-md-6">{{eventDetails.startDate | date}}</div>
+                  </div>
+                  <div class="row">
+                      <div class="col-md-6">End Date:</div>
+                      <div class="col-md-6">{{eventDetails.endDate | date}}</div>
+                    </div>
+          </div>
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-primary" data-dismiss="modal">Close</button>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="modal fade" id="errorData" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+      <div class="modal-dialog" role="document">
+        <div class="modal-content">
+          <div class="modal-header">
+            <h5 class="modal-title" id="exampleModalLabel">Error Message</h5>
+            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+              <span aria-hidden="true">&times;</span>
+            </button>
+          </div>
+          <div class="modal-body">
+            {{errorMsg}}
+          </div>
+          <div class="modal-footer">
+            <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+          </div>
+        </div>
+      </div>
+    </div>  

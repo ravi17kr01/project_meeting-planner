@@ -1,0 +1,31 @@
+<nav class="navbar fixed-top navbar-light" style="background-color: #546e7a;">
+  <a class="navbar-brand" style="color:white">Schedules</a>
+    <ul class="nav justify-content-end">
+     
+      <li class="nav-item logout">
+        <a class="nav-link" (click)="logout()">Logout</a>
+      </li>
+      
+    </ul>
+</nav>
+
+
+<div class="modal fade" id="logoutButton" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
+    <div class="modal-dialog modal-dialog-centered" role="document">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title" id="exampleModalCenterTitle">Logout</h5>
+          <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+            <span aria-hidden="true">&times;</span>
+          </button>
+        </div>
+        <div class="modal-body">
+          Are you sure want to logout
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+          <button type="button" class="btn btn-primary" (click)="logoutConfirm()">Logout</button>
+        </div>
+      </div>
+    </div>
+  </div>
